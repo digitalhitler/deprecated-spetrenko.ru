@@ -1,0 +1,124 @@
+/*!
+ * spetrenko.ru - my sweety personal pet-project sources
+ * https://github.com/digitalhitler/spetrenko.ru
+ *
+ * Copyright © 1992-2016 Sergey Petrenko
+ * This file may be the part of sp.ru source code.
+ *
+ * This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you can do anything except any kind of commercial purposes without a permission of author.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *  © Sergey Petrenko <spetrenko@me.com>
+ */
+
+/**
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Animations: gradient backgrounds
+ */
+
+
+@-webkit-keyframes bgGradient {
+  0%{background-position:74% 0%}
+  50%{background-position:27% 100%}
+  100%{background-position:74% 0%}
+}
+@-moz-keyframes bgGradient {
+  0%{background-position:74% 0%}
+  50%{background-position:27% 100%}
+  100%{background-position:74% 0%}
+}
+@-o-keyframes bgGradient {
+  0%{background-position:74% 0%}
+  50%{background-position:27% 100%}
+  100%{background-position:74% 0%}
+}
+@keyframes bgGradient {
+  0%{background-position:74% 0%}
+  50%{background-position:27% 100%}
+  100%{background-position:74% 0%}
+}
+
+@-webkit-keyframes bgGradient45sVert {
+  0%{background-position:53% 0%}
+  50%{background-position:48% 100%}
+  100%{background-position:53% 0%}
+}
+@-moz-keyframes bgGradient45sVert {
+  0%{background-position:53% 0%}
+  50%{background-position:48% 100%}
+  100%{background-position:53% 0%}
+}
+@-o-keyframes bgGradient45sVert {
+  0%{background-position:53% 0%}
+  50%{background-position:48% 100%}
+  100%{background-position:53% 0%}
+}
+@keyframes bgGradient45sVert {
+  0%{background-position:53% 0%}
+  50%{background-position:48% 100%}
+  100%{background-position:53% 0%}
+}
+
+.animation--background-gradient-diag-normal {
+  -webkit-animation: bgGradient 35s ease infinite;
+  -moz-animation: bgGradient 35s ease infinite;
+  -o-animation: bgGradient 35s ease infinite;
+  animation: bgGradient 35s ease infinite;
+  background-size: 800% 800%;
+
+  &.blue-purple {
+    background: linear-gradient(302deg, #4bb7aa, #037eb7, #671fa1, #23eaf5);
+  }
+
+  &.blue-violet {
+    background: linear-gradient(244deg, #833cf9, #3b8dff);
+  }
+}
+
+.animation--background-gradient-vertical-slow {
+  background: linear-gradient(1deg, #31303a, #889ebd);
+  background-size: 400% 400%;
+
+  -webkit-animation: bgGradient45sVert 45s ease infinite;
+  -moz-animation: bgGradient45sVert 45s ease infinite;
+  -o-animation: bgGradient45sVert 45s ease infinite;
+  animation: bgGradient45sVert 45s ease infinite;
+}
+
+.animation--background-gradient-blue-green-slow {
+  background: linear-gradient(94deg, #320453, #013044, #013c0d);
+  background-size: 800% 800%;
+
+  -webkit-animation: background-gradient-blue-green-slow 150s ease infinite;
+  -moz-animation: background-gradient-blue-green-slow 150s ease infinite;
+  -o-animation: background-gradient-blue-green-slow 150s ease infinite;
+  animation: background-gradient-blue-green-slow 150s ease infinite;
+}
+
+@-webkit-keyframes background-gradient-blue-green-slow {
+  0%{background-position:0% 2%}
+  50%{background-position:100% 99%}
+  100%{background-position:0% 2%}
+}
+@-moz-keyframes background-gradient-blue-green-slow {
+  0%{background-position:0% 2%}
+  50%{background-position:100% 99%}
+  100%{background-position:0% 2%}
+}
+@-o-keyframes background-gradient-blue-green-slow {
+  0%{background-position:0% 2%}
+  50%{background-position:100% 99%}
+  100%{background-position:0% 2%}
+}
+@keyframes background-gradient-blue-green-slow {
+  0%{background-position:0% 2%}
+  50%{background-position:100% 99%}
+  100%{background-position:0% 2%}
+}
+
+.background--static-gradient-orange-blue {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(rgb(38, 79, 173), rgba(0, 0, 0, 0) 90%), linear-gradient(-45deg, rgb(194, 85, 60) 25%, rgb(0, 0, 0) 75%) !important;
+  background: -webkit-linear-gradient(rgb(38, 79, 173), rgba(0, 0, 0, 0) 90%), -webkit-linear-gradient(-45deg, rgb(194, 85, 60) 25%, rgb(0, 0, 0) 75%) !important;
+}
