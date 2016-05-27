@@ -16,13 +16,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Title!</title>
+
+  <!-- Utils: critical resources preload in Chrome -->
+  <link rel='subresource' href='/assets/main.js'>
+  <link rel='subresource'
+        href='//aws-cdn01.spetrenko.ru/app/static/vendor/clear-sans/clearsans.css'>
+
+  <!-- Utils: DNS prefetch -->
+  <meta http-equiv='x-dns-prefetch-control' content='on'>
+  <link rel='dns-prefetch' href='http://spetrenko.ru'>
+  <link rel='dns-prefetch' href='http://aws-cdn01.spetrenko.ru'>
+
   <link rel="stylesheet" type="text/css" crossorigin="anonymous"
         href="//aws-cdn01.spetrenko.ru/app/static/vendor/clear-sans/clearsans.css">
   <link rel="stylesheet" type="text/css" crossorigin="anonymous"
         href="//aws-cdn01.spetrenko.ru/app/static/vendor/ionicons/css/ionicons.min.css">
 </head>
 <body>
-  <app>Unmounted app</app>
+  <!--<div id="preloading"></div>-->
+  <app></app>
+  <div class="grid-u-1">
+    <h2>Test</h2>
+  </div>
+
+  <div class="grid-g">
+    <div class="grid-u-1-3">
+        <div class="l-box">
+            <h3>Thirds</h3>
+            <p>This cell will be 1/3 width all the time.</p>
+         </div>
+    </div>
+
+    <div class="grid-u-1-3">
+        <div class="l-box">
+            <h3>Thirds</h3>
+            <p>This cell will be 1/3 width all the time.</p>
+         </div>
+    </div>
+
+    <div class="grid-u-1-3">
+        <div class="l-box">
+            <h3>Thirds</h3>
+            <p>This cell will be 1/3 width all the time.</p>
+         </div>
+    </div>
+</div>
+
   <div id="overlay"></div>
 </body>
 </html>

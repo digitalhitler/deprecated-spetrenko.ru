@@ -4,7 +4,8 @@
     <file url="file://$PROJECT_DIR$/bin" dialect="ECMAScript 6" />
     <file url="file://$PROJECT_DIR$/config" dialect="ECMAScript 6" />
     <file url="file://$PROJECT_DIR$/src/client" dialect="ECMAScript 6" />
-    <file url="file://$PROJECT_DIR$/src/client/stylesheets" dialect="SASS" />
+    <file url="file://$PROJECT_DIR$/src/client/components" dialect="ECMAScript 6" />
+    <file url="file://$PROJECT_DIR$/src/client/stylesheets" dialect="SCSS" />
     <file url="file://$PROJECT_DIR$/src/client/templates" dialect="HTML" />
     <file url="file://$PROJECT_DIR$/src/server.deprecated" dialect="ECMAScript 6" />
   </component>

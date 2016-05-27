@@ -34,37 +34,51 @@ import './stylesheets/main.scss';
 import Application from './modules/Application';
 import riot from 'riot';
 import jquery from 'jquery';
+import debug from 'debug';
 
 /* Components */
 import { default as Components } from './components';
+import { default as Routes } from './routes';
+import { default as Triggers } from './events';
+
 
 (function() {
 
   const app = Application.instance;
-  const scope = Application.storeScope;
   const $ = jquery;
+  localStorage.debug = 'app:*';
   if(window) {
+    const scope = Application.storeScope;
     window.$ = jquery;
+    window.getStoreScope = function() {
+      return scope || false;
+    }
+    scope.Application = app;
   }
 
-  //let built = riot.compile(Components.App);
-  //console.log(built);
-  riot.mount('*');
-  riot.route.base('#!');
-  riot.route.start(true);
-  riot.route('/about', function() {
-    'use strict';
-    console.info('i am on about');
+  riot.mount('*', {
+    isLoading: true,
+    windowTitle: '',
+    providers: {
+      httpApi: {
+        request: function(method, data) {
+          return {
+            success: true,
+            response: [
+              { a: 1, b:2 },
+              { c: 3, d: 4}
+            ]
+          };
+        }
+      }
+    }
   });
-  riot.route('/', function() {
-    'use strict';
-    console.info('i am on main');
-  })
 
   app.emit('applicationDidLoaded');
 
   $(document).ready(function() {
     'use strict';
+    $("#preloading").addClass("dismiss");
     app.emit('documentDidLoaded');
   })
 

@@ -5,7 +5,11 @@
  * Copyright © 1992-2016 Sergey Petrenko                                      *
  * This file may be the part of sp.ru source code.                            *
  *                                                                            *
- * This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you can do anything except any kind of commercial purposes without a permission of author.
+ * This software is licensed under the Creative Commons Attribution           *
+ * NonCommercial 4.0 International License. To view a copy of this license,   *
+ * visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you *
+ * can do anything except any kind of commercial purposes without a           *
+ * permission of author.                                                      *
  *                                                                            *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *                                                                            *
@@ -36,27 +40,30 @@ body.cs-default {
       }
     }
 
-    .header-button {
-      background-color: transparentize($baseNeutralStorm, .65);
+    .header-button, .mainmenu--button {
+      background-color: transparentize($baseNeutralStorm, .2);
       box-shadow:0 7px 18px 0 transparentize($baseNeutralStorm, .9),0 15px 57px 0 transparentize($baseNeutralStorm, .9);
       color: $baseLight;
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
 
       &:hover {
-        background-color: transparentize($baseNeutralStorm, .6);
+        background-color: transparentize($baseNeutralStorm, .1);
         transition-property: all;
         transition-duration: .3s;
         color: white;
       }
 
-      a {
+      .mainmenu--bg {
+        background-color: $baseNeutralStorm;
+        -webkit-backdrop-filter: blur(5px);
+      }
+
+      a, span.inverse {
         color: $baseLight;
       }
     }
 
     h1 {
-      background-color: transparentize($baseNeutralStorm, .65);
+      background-color: transparentize($baseNeutralStorm, .2);
       box-shadow:0 7px 18px 0 transparentize($baseNeutralStorm, .9),0 15px 57px 0 transparentize($baseNeutralStorm, .9);
       border: 1px transparentize($baseNeutralLight, .92) solid;
       -webkit-backdrop-filter: blur(20px);
@@ -64,13 +71,13 @@ body.cs-default {
       overflow: hidden;
 
       &:hover {
-        background-color: transparentize($baseNeutralStorm, .6);
+        background-color: transparentize($baseNeutralStorm, .1);
         transition-property: all;
         transition-duration: .3s;
-        color: white;
+        color: $baseLight;
       }
 
-      span#headerTitle {
+      span#headerTitle, i {
         color: $baseLight;
       }
     }

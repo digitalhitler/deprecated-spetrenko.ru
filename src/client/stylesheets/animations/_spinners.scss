@@ -1,4 +1,4 @@
-/******************************************************************************
+/*!*****************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -12,53 +12,72 @@
  *  © Sergey Petrenko <spetrenko@me.com>                                      *
  ******************************************************************************/
 
-"use strict";
-
-import EventEmitter from 'events';
-
-let singleton = Symbol();
-let singletonEnforcer = Symbol();
-
-/**
- * @singleton Application
- * @description This class is uses to handle common & top-level behavior
- * around the application.
- */
-class Application extends EventEmitter {
-  constructor(enforcer) {
-    super();
-    if (enforcer !== singletonEnforcer) {
-      //throw new Error("Cannot construct Application: enforcer is wrong");
-      return singletonEnforcer;
-    }
-    this.on('applicationDidLoaded', function() {
-      console.info('Application did loaded.');
-    });
-
-    this.on('documentDidLoaded', function() {
-      console.info('Document did loaded.');
-    });
-
-    
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dc5c1;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.2em 5.1em;
+  transform-origin: 5.2em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader {
+  color: #ffffff;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dc5c1;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 5.1em;
+  -webkit-transform-origin: 0px 5.1em;
+  transform-origin: 0px 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
-
-  /**
-   * @returns Application
-   */
-  static get instance() {
-    if (!this[singleton]) {
-      this[singleton] = new Application(singletonEnforcer);
-    }
-    return this[singleton];
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-
-  static get storeScope() {
-    let globalScope = global || window;
-    if (!globalScope.__appStoreScope) {
-      globalScope.__appStoreScope = {};
-    }
-    return globalScope.__appStoreScope;
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-export default Application;
+

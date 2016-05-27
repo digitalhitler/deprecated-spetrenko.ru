@@ -1,0 +1,693 @@
+/*!*****************************************************************************
+ * spetrenko.ru - my sweety personal pet-project sources                      *
+ * https://github.com/digitalhitler/spetrenko.ru                              *
+ *                                                                            *
+ * Copyright © 1992-2016 Sergey Petrenko                                      *
+ * This file may be the part of sp.ru source code.                            *
+ *                                                                            *
+ * This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you can do anything except any kind of commercial purposes without a permission of author.
+ *                                                                            *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *                                                                            *
+ *  © Sergey Petrenko <spetrenko@me.com>                                      *
+ ******************************************************************************/
+
+
+.sp-form input[type="text"],
+.sp-form input[type="password"],
+.sp-form input[type="email"],
+.sp-form input[type="url"],
+.sp-form input[type="date"],
+.sp-form input[type="month"],
+.sp-form input[type="time"],
+.sp-form input[type="datetime"],
+.sp-form input[type="datetime-local"],
+.sp-form input[type="week"],
+.sp-form input[type="number"],
+.sp-form input[type="search"],
+.sp-form input[type="tel"],
+.sp-form input[type="color"],
+.sp-form select,
+.sp-form textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form input:not([type]) {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.sp-form input[type="color"] {
+  padding: 0.2em 0.5em;
+}
+
+
+.sp-form input[type="text"]:focus,
+.sp-form input[type="password"]:focus,
+.sp-form input[type="email"]:focus,
+.sp-form input[type="url"]:focus,
+.sp-form input[type="date"]:focus,
+.sp-form input[type="month"]:focus,
+.sp-form input[type="time"]:focus,
+.sp-form input[type="datetime"]:focus,
+.sp-form input[type="datetime-local"]:focus,
+.sp-form input[type="week"]:focus,
+.sp-form input[type="number"]:focus,
+.sp-form input[type="search"]:focus,
+.sp-form input[type="tel"]:focus,
+.sp-form input[type="color"]:focus,
+.sp-form select:focus,
+.sp-form textarea:focus {
+  outline: 0;
+  border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form input:not([type]):focus {
+  outline: 0;
+  border-color: #129FEA;
+}
+
+.sp-form input[type="file"]:focus,
+.sp-form input[type="radio"]:focus,
+.sp-form input[type="checkbox"]:focus {
+  outline: thin solid #129FEA;
+  outline: 1px auto #129FEA;
+}
+.sp-form .sp-checkbox,
+.sp-form .sp-radio {
+  margin: 0.5em 0;
+  display: block;
+}
+
+.sp-form input[type="text"][disabled],
+.sp-form input[type="password"][disabled],
+.sp-form input[type="email"][disabled],
+.sp-form input[type="url"][disabled],
+.sp-form input[type="date"][disabled],
+.sp-form input[type="month"][disabled],
+.sp-form input[type="time"][disabled],
+.sp-form input[type="datetime"][disabled],
+.sp-form input[type="datetime-local"][disabled],
+.sp-form input[type="week"][disabled],
+.sp-form input[type="number"][disabled],
+.sp-form input[type="search"][disabled],
+.sp-form input[type="tel"][disabled],
+.sp-form input[type="color"][disabled],
+.sp-form select[disabled],
+.sp-form textarea[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form input:not([type])[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+.sp-form input[readonly],
+.sp-form select[readonly],
+.sp-form textarea[readonly] {
+  background-color: #eee; /* menu hover bg color */
+  color: #777; /* menu text color */
+  border-color: #ccc;
+}
+
+.sp-form input:focus:invalid,
+.sp-form textarea:focus:invalid,
+.sp-form select:focus:invalid {
+  color: #b94a48;
+  border-color: #e9322d;
+}
+.sp-form input[type="file"]:focus:invalid:focus,
+.sp-form input[type="radio"]:focus:invalid:focus,
+.sp-form input[type="checkbox"]:focus:invalid:focus {
+  outline-color: #e9322d;
+}
+.sp-form select {
+  /* Normalizes the height; padding is not sufficient. */
+  height: 2.25em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+.sp-form select[multiple] {
+  height: auto;
+}
+.sp-form label {
+  margin: 0.5em 0 0.2em;
+}
+.sp-form fieldset {
+  margin: 0;
+  padding: 0.35em 0 0.75em;
+  border: 0;
+}
+.sp-form legend {
+  display: block;
+  width: 100%;
+  padding: 0.3em 0;
+  margin-bottom: 0.3em;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.sp-form-stacked input[type="text"],
+.sp-form-stacked input[type="password"],
+.sp-form-stacked input[type="email"],
+.sp-form-stacked input[type="url"],
+.sp-form-stacked input[type="date"],
+.sp-form-stacked input[type="month"],
+.sp-form-stacked input[type="time"],
+.sp-form-stacked input[type="datetime"],
+.sp-form-stacked input[type="datetime-local"],
+.sp-form-stacked input[type="week"],
+.sp-form-stacked input[type="number"],
+.sp-form-stacked input[type="search"],
+.sp-form-stacked input[type="tel"],
+.sp-form-stacked input[type="color"],
+.sp-form-stacked input[type="file"],
+.sp-form-stacked select,
+.sp-form-stacked label,
+.sp-form-stacked textarea {
+  display: block;
+  margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form-stacked input:not([type]) {
+  display: block;
+  margin: 0.25em 0;
+}
+.sp-form-aligned input,
+.sp-form-aligned textarea,
+.sp-form-aligned select,
+  /* NOTE: sp-help-inline is deprecated. Use .sp-form-message-inline instead. */
+.sp-form-aligned .sp-help-inline,
+.sp-form-message-inline {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+}
+.sp-form-aligned textarea {
+  vertical-align: top;
+}
+
+/* Aligned Forms */
+.sp-form-aligned .sp-control-group {
+  margin-bottom: 0.5em;
+}
+.sp-form-aligned .sp-control-group label {
+  text-align: right;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10em;
+  margin: 0 1em 0 0;
+}
+.sp-form-aligned .sp-controls {
+  margin: 1.5em 0 0 11em;
+}
+
+/* Rounded Inputs */
+.sp-form input.sp-input-rounded,
+.sp-form .sp-input-rounded {
+  border-radius: 2em;
+  padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.sp-form .sp-group fieldset {
+  margin-bottom: 10px;
+}
+.sp-form .sp-group input,
+.sp-form .sp-group textarea {
+  display: block;
+  padding: 10px;
+  margin: 0 0 -1px;
+  border-radius: 0;
+  position: relative;
+  top: -1px;
+}
+.sp-form .sp-group input:focus,
+.sp-form .sp-group textarea:focus {
+  z-index: 3;
+}
+.sp-form .sp-group input:first-child,
+.sp-form .sp-group textarea:first-child {
+  top: 1px;
+  border-radius: 4px 4px 0 0;
+  margin: 0;
+}
+.sp-form .sp-group input:first-child:last-child,
+.sp-form .sp-group textarea:first-child:last-child {
+  top: 1px;
+  border-radius: 4px;
+  margin: 0;
+}
+.sp-form .sp-group input:last-child,
+.sp-form .sp-group textarea:last-child {
+  top: -2px;
+  border-radius: 0 0 4px 4px;
+  margin: 0;
+}
+.sp-form .sp-group button {
+  margin: 0.35em 0;
+}
+
+.sp-form .sp-input-1 {
+  width: 100%;
+}
+.sp-form .sp-input-2-3 {
+  width: 66%;
+}
+.sp-form .sp-input-1-2 {
+  width: 50%;
+}
+.sp-form .sp-input-1-3 {
+  width: 33%;
+}
+.sp-form .sp-input-1-4 {
+  width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: sp-help-inline is deprecated. Use .sp-form-message-inline instead. */
+.sp-form .sp-help-inline,
+.sp-form-message-inline {
+  display: inline-block;
+  padding-left: 0.3em;
+  color: #666;
+  vertical-align: middle;
+  font-size: 0.875em;
+}
+
+/* Block help for forms */
+.sp-form-message {
+  display: block;
+  color: #666;
+  font-size: 0.875em;
+}
+
+@media only screen and (max-width : 480px) {
+  .sp-form button[type="submit"] {
+    margin: 0.7em 0 0;
+  }
+
+  .sp-form input:not([type]),
+  .sp-form input[type="text"],
+  .sp-form input[type="password"],
+  .sp-form input[type="email"],
+  .sp-form input[type="url"],
+  .sp-form input[type="date"],
+  .sp-form input[type="month"],
+  .sp-form input[type="time"],
+  .sp-form input[type="datetime"],
+  .sp-form input[type="datetime-local"],
+  .sp-form input[type="week"],
+  .sp-form input[type="number"],
+  .sp-form input[type="search"],
+  .sp-form input[type="tel"],
+  .sp-form input[type="color"],
+  .sp-form label {
+    margin-bottom: 0.3em;
+    display: block;
+  }
+
+  .sp-group input:not([type]),
+  .sp-group input[type="text"],
+  .sp-group input[type="password"],
+  .sp-group input[type="email"],
+  .sp-group input[type="url"],
+  .sp-group input[type="date"],
+  .sp-group input[type="month"],
+  .sp-group input[type="time"],
+  .sp-group input[type="datetime"],
+  .sp-group input[type="datetime-local"],
+  .sp-group input[type="week"],
+  .sp-group input[type="number"],
+  .sp-group input[type="search"],
+  .sp-group input[type="tel"],
+  .sp-group input[type="color"] {
+    margin-bottom: 0;
+  }
+
+  .sp-form-aligned .sp-control-group label {
+    margin-bottom: 0.3em;
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+
+  .sp-form-aligned .sp-controls {
+    margin: 1.5em 0 0 0;
+  }
+
+  /* NOTE: sp-help-inline is deprecated. Use .sp-form-message-inline instead. */
+  .sp-form .sp-help-inline,
+  .sp-form-message-inline,
+  .sp-form-message {
+    display: block;
+    font-size: 0.75em;
+    /* Increased bottom padding to make it group with its related input element. */
+    padding: 0.2em 0 0.8em;
+  }
+}
+
+
+
+.sp-form input[type="text"],
+.sp-form input[type="password"],
+.sp-form input[type="email"],
+.sp-form input[type="url"],
+.sp-form input[type="date"],
+.sp-form input[type="month"],
+.sp-form input[type="time"],
+.sp-form input[type="datetime"],
+.sp-form input[type="datetime-local"],
+.sp-form input[type="week"],
+.sp-form input[type="number"],
+.sp-form input[type="search"],
+.sp-form input[type="tel"],
+.sp-form input[type="color"],
+.sp-form select,
+.sp-form textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form input:not([type]) {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.sp-form input[type="color"] {
+  padding: 0.2em 0.5em;
+}
+
+
+.sp-form input[type="text"]:focus,
+.sp-form input[type="password"]:focus,
+.sp-form input[type="email"]:focus,
+.sp-form input[type="url"]:focus,
+.sp-form input[type="date"]:focus,
+.sp-form input[type="month"]:focus,
+.sp-form input[type="time"]:focus,
+.sp-form input[type="datetime"]:focus,
+.sp-form input[type="datetime-local"]:focus,
+.sp-form input[type="week"]:focus,
+.sp-form input[type="number"]:focus,
+.sp-form input[type="search"]:focus,
+.sp-form input[type="tel"]:focus,
+.sp-form input[type="color"]:focus,
+.sp-form select:focus,
+.sp-form textarea:focus {
+  outline: 0;
+  border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form input:not([type]):focus {
+  outline: 0;
+  border-color: #129FEA;
+}
+
+.sp-form input[type="file"]:focus,
+.sp-form input[type="radio"]:focus,
+.sp-form input[type="checkbox"]:focus {
+  outline: thin solid #129FEA;
+  outline: 1px auto #129FEA;
+}
+.sp-form .sp-checkbox,
+.sp-form .sp-radio {
+  margin: 0.5em 0;
+  display: block;
+}
+
+.sp-form input[type="text"][disabled],
+.sp-form input[type="password"][disabled],
+.sp-form input[type="email"][disabled],
+.sp-form input[type="url"][disabled],
+.sp-form input[type="date"][disabled],
+.sp-form input[type="month"][disabled],
+.sp-form input[type="time"][disabled],
+.sp-form input[type="datetime"][disabled],
+.sp-form input[type="datetime-local"][disabled],
+.sp-form input[type="week"][disabled],
+.sp-form input[type="number"][disabled],
+.sp-form input[type="search"][disabled],
+.sp-form input[type="tel"][disabled],
+.sp-form input[type="color"][disabled],
+.sp-form select[disabled],
+.sp-form textarea[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form input:not([type])[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+.sp-form input[readonly],
+.sp-form select[readonly],
+.sp-form textarea[readonly] {
+  background-color: #eee; /* menu hover bg color */
+  color: #777; /* menu text color */
+  border-color: #ccc;
+}
+
+.sp-form input:focus:invalid,
+.sp-form textarea:focus:invalid,
+.sp-form select:focus:invalid {
+  color: #b94a48;
+  border-color: #e9322d;
+}
+.sp-form input[type="file"]:focus:invalid:focus,
+.sp-form input[type="radio"]:focus:invalid:focus,
+.sp-form input[type="checkbox"]:focus:invalid:focus {
+  outline-color: #e9322d;
+}
+.sp-form select {
+  /* Normalizes the height; padding is not sufficient. */
+  height: 2.25em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+.sp-form select[multiple] {
+  height: auto;
+}
+.sp-form label {
+  margin: 0.5em 0 0.2em;
+}
+.sp-form fieldset {
+  margin: 0;
+  padding: 0.35em 0 0.75em;
+  border: 0;
+}
+.sp-form legend {
+  display: block;
+  width: 100%;
+  padding: 0.3em 0;
+  margin-bottom: 0.3em;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.sp-form-stacked input[type="text"],
+.sp-form-stacked input[type="password"],
+.sp-form-stacked input[type="email"],
+.sp-form-stacked input[type="url"],
+.sp-form-stacked input[type="date"],
+.sp-form-stacked input[type="month"],
+.sp-form-stacked input[type="time"],
+.sp-form-stacked input[type="datetime"],
+.sp-form-stacked input[type="datetime-local"],
+.sp-form-stacked input[type="week"],
+.sp-form-stacked input[type="number"],
+.sp-form-stacked input[type="search"],
+.sp-form-stacked input[type="tel"],
+.sp-form-stacked input[type="color"],
+.sp-form-stacked input[type="file"],
+.sp-form-stacked select,
+.sp-form-stacked label,
+.sp-form-stacked textarea {
+  display: block;
+  margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.sp-form-stacked input:not([type]) {
+  display: block;
+  margin: 0.25em 0;
+}
+.sp-form-aligned input,
+.sp-form-aligned textarea,
+.sp-form-aligned select,
+  /* NOTE: sp-help-inline is deprecated. Use .sp-form-message-inline instead. */
+.sp-form-aligned .sp-help-inline,
+.sp-form-message-inline {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+}
+.sp-form-aligned textarea {
+  vertical-align: top;
+}
+
+/* Aligned Forms */
+.sp-form-aligned .sp-control-group {
+  margin-bottom: 0.5em;
+}
+.sp-form-aligned .sp-control-group label {
+  text-align: right;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10em;
+  margin: 0 1em 0 0;
+}
+.sp-form-aligned .sp-controls {
+  margin: 1.5em 0 0 11em;
+}
+
+/* Rounded Inputs */
+.sp-form input.sp-input-rounded,
+.sp-form .sp-input-rounded {
+  border-radius: 2em;
+  padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.sp-form .sp-group fieldset {
+  margin-bottom: 10px;
+}
+.sp-form .sp-group input,
+.sp-form .sp-group textarea {
+  display: block;
+  padding: 10px;
+  margin: 0 0 -1px;
+  border-radius: 0;
+  position: relative;
+  top: -1px;
+}
+.sp-form .sp-group input:focus,
+.sp-form .sp-group textarea:focus {
+  z-index: 3;
+}
+.sp-form .sp-group input:first-child,
+.sp-form .sp-group textarea:first-child {
+  top: 1px;
+  border-radius: 4px 4px 0 0;
+  margin: 0;
+}
+.sp-form .sp-group input:first-child:last-child,
+.sp-form .sp-group textarea:first-child:last-child {
+  top: 1px;
+  border-radius: 4px;
+  margin: 0;
+}
+.sp-form .sp-group input:last-child,
+.sp-form .sp-group textarea:last-child {
+  top: -2px;
+  border-radius: 0 0 4px 4px;
+  margin: 0;
+}
+.sp-form .sp-group button {
+  margin: 0.35em 0;
+}
+
+.sp-form .sp-input-1 {
+  width: 100%;
+}
+.sp-form .sp-input-2-3 {
+  width: 66%;
+}
+.sp-form .sp-input-1-2 {
+  width: 50%;
+}
+.sp-form .sp-input-1-3 {
+  width: 33%;
+}
+.sp-form .sp-input-1-4 {
+  width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: sp-help-inline is deprecated. Use .sp-form-message-inline instead. */
+.sp-form .sp-help-inline,
+.sp-form-message-inline {
+  display: inline-block;
+  padding-left: 0.3em;
+  color: #666;
+  vertical-align: middle;
+  font-size: 0.875em;
+}
+
+/* Block help for forms */
+.sp-form-message {
+  display: block;
+  color: #666;
+  font-size: 0.875em;
+}

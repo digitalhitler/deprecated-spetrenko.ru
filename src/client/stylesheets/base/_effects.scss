@@ -61,4 +61,32 @@
   box-shadow:0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
 }
 
+.overlay {
+  margin: 0;
+  display: table;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: $overlayIndex;
+  font-weight: 200;
+  user-select: none;
+  background: #000;
+  //background: rgba(0,0,0,0.8);
+  background: radial-gradient(rgba(64,64,75,.9),rgba(17,17,24,.9)) rgba(34,34,40,.52);
+  transition: 300ms opacity ease-out;
+  transform: translate3d(0, 0, 0);
+  animation: fadeIn .3s ease-in;
 
+  section.overlay-content {
+    z-index: $overlayContentIndex;
+    padding: 0;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+  }
+}

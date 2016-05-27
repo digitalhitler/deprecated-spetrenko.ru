@@ -1,0 +1,34 @@
+.cover-image {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto 1em;
+    max-height: 300px;
+    max-width: 100%;
+
+    // @attention: is it required?
+    // padding-bottom: 50%;
+
+
+    &:before {
+      content: '';
+      display: block;
+      width:100%;
+    }
+
+    &.ratio-2by1:before {
+      padding-bottom: 50%;
+    }
+    &.ratio-3by1:before {
+      padding-bottom: 33.33%;
+    }
+    &.ratio-4by1:before {
+      padding-bottom: 25%;
+    }
+    &.ratio-4by3:before {
+      padding-bottom: 75%;
+    }
+}
