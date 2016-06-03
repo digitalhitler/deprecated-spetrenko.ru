@@ -24,7 +24,7 @@ import riot from 'riot';
 
 const ComponentTemplate =
 `
-<a if="{ isLabeled }" href="{ addr }" class="sp-badge">
+<a if="{ isLabeled }" href="{ addr }" role="badge" class="{ class: true }">
   <i if="{ withIcon }" class="{ icon: true }"></i>
   { label }
 </a>

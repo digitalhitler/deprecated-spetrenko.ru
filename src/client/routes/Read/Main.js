@@ -1,10 +1,10 @@
 /**
 * @Author: Sergey S Petrenko <getrix>
-* @Date:   2016-05-24T08:16:15+03:00
+* @Date:   2016-05-24T05:39:03+03:00
 * @Email:  spetrenko@me.com
 * @Project: spetrenko.ru
 * @Last modified by:   getrix
-* @Last modified time: 2016-05-24T21:16:41+03:00
+* @Last modified time: 2016-05-24T19:55:50+03:00
 * @License: This software is licensed under the Creative Commons Attribution-NonCommercial 4.0
 International License.
 To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc/4.0/.
@@ -24,8 +24,13 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 import riot from 'riot';
 
+const debug = require('debug')('app:router:read');
+
 export function Handle(postId) {
   let urlParams = riot.route.query();
-  console.log(window.__appStoreScope.Application);
-  console.info('Routing to ', postId, urlParams);
+  debug('Will route to:', postId, urlParams);
+  riot.mount('#PageContainer', 'reader', {
+    extendHeaderWith: 'cs-inverse',
+    configPassedInEditRoute: [ 1,2,3 ]
+  });
 }

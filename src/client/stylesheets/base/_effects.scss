@@ -12,22 +12,37 @@
  *  © Sergey Petrenko <spetrenko@me.com>
  */
 
+/** Animation keyframes **/
 
-/***** Filters & overlays *****/
+
+
+
+/** Filters & overlays **/
 .vignetted {
   box-shadow: inset 0px 0px 10em rgba(0, 0, 0, 0.2), inset 0px 0px 35em rgba(0, 0, 0, 0.07);
 }
 
+
+
+
+/** OS X-like transparency **/
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .frosted {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+}
+
 .frosted {
-  -webkit-align-self: center;
   background-color: transparent;
-  padding: 3em;
-  -webkit-backdrop-filter: blur(20px);
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  width: 50vw;
-  height: 50vh;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  // What is that?
+  //padding: 3em;
+  //overflow: auto;
+  //-webkit-overflow-scrolling: touch;
+  //width: 50vw;
+  //height: 50vh;
+  //box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 
@@ -52,6 +67,7 @@
 .z-depth-5 {
   box-shadow:0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)
 }
+
 .hoverable {
   transition:box-shadow .25s;
   box-shadow:0
@@ -62,6 +78,7 @@
 }
 
 .overlay {
+  @extend .frosted, .vignetted;
   margin: 0;
   display: table;
   position: fixed;
@@ -75,12 +92,10 @@
   z-index: $overlayIndex;
   font-weight: 200;
   user-select: none;
-  background: #000;
-  //background: rgba(0,0,0,0.8);
-  background: radial-gradient(rgba(64,64,75,.9),rgba(17,17,24,.9)) rgba(34,34,40,.52);
+  background: rgba(0,0,0,0.6);
   transition: 300ms opacity ease-out;
   transform: translate3d(0, 0, 0);
-  animation: fadeIn .3s ease-in;
+  animation: fadeIn .5s ease-in;
 
   section.overlay-content {
     z-index: $overlayContentIndex;

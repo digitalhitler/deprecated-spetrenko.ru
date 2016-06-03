@@ -1,0 +1,23 @@
+#Reader {
+  @extend .frosted;
+  position: fixed;
+  z-index: $pageMainContentIndex;
+  background-color: rgba(255,255,255,.3);
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+
+  .head {
+    background-color: rgba(0,0,0, .7);
+    box-sizing: border-box;
+    padding-top: 100px;
+
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

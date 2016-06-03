@@ -12,10 +12,14 @@
  *  © Sergey Petrenko <spetrenko@me.com>
  */
 
+
+/** Config **/
 @import "config/colors";
 @import "config/typography";
 @import "config/zindex";
 
+
+/** Base  **/
 @import "base/_reset";
 @import "base/_color";
 @import "base/_typography";
@@ -26,10 +30,15 @@
 
 @import "utils/_image";
 
+
+/** Layout **/
 @import "layout/_default";
 @import "layout/_grid";
 
+
+/** Color schemas **/
 @import "schemas/default";
+@import "schemas/inverse";
 
 
 @import "animations/_backgrounds";
@@ -47,3 +56,4 @@
 @import "vendor/bricklayer-0.4.2";
 
 @import "components/ItemsGridCard";
+@import "components/Reader";

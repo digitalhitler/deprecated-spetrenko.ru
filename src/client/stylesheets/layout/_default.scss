@@ -83,6 +83,7 @@
   position: fixed;
   padding: 16px;
   z-index: $stickyHeaderIndex;
+  box-sizing: border-box;
 
   //transform: scale(.95);
 

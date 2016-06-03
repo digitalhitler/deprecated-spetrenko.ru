@@ -12,7 +12,8 @@
  *  © Sergey Petrenko <spetrenko@me.com>                                      *
  ******************************************************************************/
 
-.sp-button {
+.sp-button,
+[role=button] {
   /* Structure */
   display: inline-block;
   zoom: 1;

@@ -37,10 +37,12 @@ OTHER DEALINGS IN THE SOFTWARE.
 const ComponentsList = {
   App: require('./App/App.js'),
 
-  LayoutHeader:       require('./Layout/DefaultHeader'),
-  LayoutSpinner:      require('./Layout/Spinner'),
+  LayoutHeader:        require('./Layout/DefaultHeader'),
+  LayoutSpinner:       require('./Layout/Spinner'),
 
-  LayoutEditor:       require('./Layout/Editor'),
+  LayoutEditor:        require('./Layout/Editor'),
+
+  Reader:              require('./Reader/Reader'),
 
   GC: {
     Badge:             require('./GenericControls/Badge'),

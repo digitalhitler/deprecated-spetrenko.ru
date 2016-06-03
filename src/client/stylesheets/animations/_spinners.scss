@@ -59,6 +59,37 @@
   -webkit-animation: load2 2s infinite ease;
   animation: load2 2s infinite ease;
 }
+
+/** Material-style circle **/
+
+.sp-loader-circle {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border: 0.25rem solid #ddd;
+  border-top-color: #333;
+  display: inline-block;
+  margin: 0 8px;
+
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.broke-gravity {
+  -webkit-animation-timing-function: cubic-bezier(0.65, 1.5, 0.6, 0.95);
+  animation-timing-function: cubic-bezier(0.65, 1.5, 0.6, 0.95);
+}
+
+
+
 @-webkit-keyframes load2 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -79,5 +110,3 @@
     transform: rotate(360deg);
   }
 }
-
-

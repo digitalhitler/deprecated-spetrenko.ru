@@ -39,7 +39,7 @@ class Application extends EventEmitter {
       console.info('Document did loaded.');
     });
 
-    
+
   }
 
   /**
@@ -50,6 +50,13 @@ class Application extends EventEmitter {
       this[singleton] = new Application(singletonEnforcer);
     }
     return this[singleton];
+  }
+
+  static loadExternalScript(url) {
+  var el = document.createElement('script');
+  el.type = 'text/javascript';
+  el.src = url;
+  document.getElementsByTagName('head')[0].appendChild(el);
   }
 
   static get storeScope() {

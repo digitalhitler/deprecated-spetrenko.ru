@@ -24,10 +24,12 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 import riot from 'riot';
 
+const debug = require('debug')('app:router:edit');
+
 export function Handle(postId) {
   let urlParams = riot.route.query();
-  console.info('Routing to ', postId, urlParams);
-  riot.mount('#PageContainer', 'layout-editor', {
+  debug('Will route to:', postId, urlParams);
+  riot.mount('#PageContainer', 'editor', {
     configPassedInEditRoute: [ 1,2,3 ]
   });
 }
