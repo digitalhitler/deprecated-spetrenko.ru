@@ -16,10 +16,19 @@
 
 const db = require('../providers/database');
 
-module.exports = {
-  method: 'GET',
-  path: '/posts',
+module.exports = [
+	{
+	  method: 'GET',
+	  path: '/posts',
+	  handler: function (request, reply) {
+	    reply('halo');
+	  }
+	},
+	{
+  method: 'POST',
+  path: '/posts/create',
   handler: function (request, reply) {
     reply('halo');
   }
-};
+}
+];

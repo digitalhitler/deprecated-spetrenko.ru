@@ -17,6 +17,8 @@
 // @todo: see README.md Hipsting section.
 // require('@risingstack/trace');
 
+const App = require('./components/app');
+
 const Hapi = require('hapi');
 
 const server = new Hapi.Server();

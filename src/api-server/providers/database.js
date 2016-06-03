@@ -12,25 +12,26 @@
  *  © Sergey Petrenko <spetrenko@me.com>                                      *
  ******************************************************************************/
 
+
+const connIds = {
+	DEVELOPMENT: 'mongodb://localhost/spetrenko',
+	PRODUCTION 'mongodb://spetrenko.ru/spetrenko'
+};
+
 module.exports = (function() {
   'use strict';
 
-  const Mongorito = require('mongorito');
-
-  Mongorito.connect('spetrenko:Moscow690@spetrenko.ru:9999/spetrenko');
-  console.log(Mongorito);
-
-  const Post = require('../models/Post');
-
-  let newPost = new Post({
-    title: 'Тестовый псто',
-    subtitle: 'Подзаголовок еще один тут',
-    meta: {
-        tags: 'псто, тест, хуест'
-    },
-    labels: [ 3, 11, 24 ]
-  });
-
-  //Mongorito.disconnect();
-  return Mongorito;
+	const mongoose = require('mongoose');
+	mongoose.connect();
+	
+	const Connection = mongoose.connection;
+	
+	Connection.on('error', (err) => {
+		console.error('Database failure!\n', 'Details:\n', err);
+	});
+	
+	Connection.on('open', () => {
+		console.info('Database connected');
+	})
+  
 }());
