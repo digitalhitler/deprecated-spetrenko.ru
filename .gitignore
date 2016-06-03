@@ -3,6 +3,7 @@ node_modules
 src/api-server/trace.config.js
 build
 *deprecated*
+usr/mongodb/data/**
 
 
 # Created by .ignore support plugin (hsz.mobi)
