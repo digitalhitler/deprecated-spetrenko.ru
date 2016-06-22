@@ -4,14 +4,13 @@
   "private": false,
   "scripts": {
     "start": "node ./bin/www",
-    "watch": "node_modules/.bin/webpack-dev-server --colors --progress"
+    "watch": "node_modules/.bin/webpack-dev-server --colors --progress --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
     "link": "https://github.com/digitalhitler/spetrenko.ru"
   },
   "dependencies": {
-    "@risingstack/trace": "2.13.3",
     "axios": "0.11.1",
     "babel-core": "6.9.0",
     "babel-plugin-transform-runtime": "^6.9.0",
@@ -27,12 +26,7 @@
     "jquery": "2.2.4",
     "lodash": "4.12.0",
     "moment": "2.13.0",
-    "mongorito": "2.0.0",
-    "morgan": "~1.6.1",
-    "pouchdb": "5.3.2",
-    "redux": "3.5.2",
     "riot": "2.4.1",
-    "serve-favicon": "~2.3.0",
     "superagent": "1.8.2"
   },
   "devDependencies": {

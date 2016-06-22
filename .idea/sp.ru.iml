@@ -2,6 +2,22 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/client/components/App" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/components/addon" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/components/public" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/components/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/components/tests/unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/components/tests/integration" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/containers/App" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/containers/addon" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/containers/public" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/containers/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/containers/tests/unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/client/containers/tests/integration" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/src/client/components/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/src/client/components/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/src/client/containers/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/src/client/containers/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/src/strapi/spetrenko/node_modules" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -10,5 +26,7 @@
     <orderEntry type="library" name="jQuery-2.0.0" level="application" />
     <orderEntry type="library" name="riotjs-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="riotcontrol-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="hapi-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="mongoose-DefinitelyTyped" level="application" />
   </component>
 </module>

@@ -3,7 +3,7 @@
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{sp.ru node_modules}" />
     <file url="file://$PROJECT_DIR$/src/client/components" libraries="{ECMAScript 6, HTML5 / EcmaScript 5, jQuery-2.0.0, riotjs-DefinitelyTyped}" />
-    <file url="PROJECT" libraries="{jQuery-2.0.0, riotcontrol-DefinitelyTyped, riotjs-DefinitelyTyped}" />
+    <file url="PROJECT" libraries="{hapi-DefinitelyTyped, jQuery-2.0.0, mongoose-DefinitelyTyped, riotjs-DefinitelyTyped}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
