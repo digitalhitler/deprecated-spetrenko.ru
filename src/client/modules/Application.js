@@ -1,4 +1,15 @@
 /******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/******************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -12,33 +23,38 @@
  *  © Sergey Petrenko <spetrenko@me.com>                                      *
  ******************************************************************************/
 
-"use strict";
-
+// Dependencies:
 import EventEmitter from 'events';
+import riot from 'riot';
 
-let singleton = Symbol();
-let singletonEnforcer = Symbol();
+const log = require('debug')('app:main');
+
+let instance = window.applicationInstance = null;
 
 /**
- * @singleton Application
+ * @class Application
  * @description This class is uses to handle common & top-level behavior
  * around the application.
+ * @singleton
  */
 class Application extends EventEmitter {
-  constructor(enforcer) {
+  constructor() {
     super();
-    if (enforcer !== singletonEnforcer) {
-      //throw new Error("Cannot construct Application: enforcer is wrong");
-      return singletonEnforcer;
+    if (instance) {
+      return instance;
     }
+
+    // this.Router = new Router();
+    // this.Router.navigate();
+
+
     this.on('applicationDidLoaded', function() {
-      console.info('Application did loaded.');
+      log('Application did loaded.');
     });
 
     this.on('documentDidLoaded', function() {
-      console.info('Document did loaded.');
+      log('Document did loaded.');
     });
-
 
   }
 
@@ -46,26 +62,60 @@ class Application extends EventEmitter {
    * @returns Application
    */
   static get instance() {
-    if (!this[singleton]) {
-      this[singleton] = new Application(singletonEnforcer);
+    if (!instance) {
+      log('Instantiating new Application');
+      instance = new Application();
+    } else {
+      log('Linking to old instance of Application');
     }
-    return this[singleton];
-  }
-
-  static loadExternalScript(url) {
-  var el = document.createElement('script');
-  el.type = 'text/javascript';
-  el.src = url;
-  document.getElementsByTagName('head')[0].appendChild(el);
+    return instance;
   }
 
   static get storeScope() {
-    let globalScope = global || window;
-    if (!globalScope.__appStoreScope) {
-      globalScope.__appStoreScope = {};
-    }
-    return globalScope.__appStoreScope;
+   return Application.instance;
   }
+
+  loadExternalScript(url) {
+    log('injecting external script: ' + url);
+    let el = document.createElement('script');
+    el.type = 'text/javascript';
+    el.src = url;
+    document.getElementsByTagName('head')[0].appendChild(el);
+
+  }
+
+  loadComponents(components) {
+    if(typeof components === 'string') {
+      components = [ components ];
+    }
+    log('injecting components instances: ', components);
+    if(typeof components === 'object') {
+      for(let curr in components) {
+        require(`../components/${components[curr]}`);
+      }
+    }
+
+  }
+
+  dumpComponent(component) {
+    if(component.constructor.name !== "Tag") {
+      console.error('dump failed: not a proper component:', component);
+      return;
+    }
+    console.info('dump of #' + component._riot_id + ' (' + (component.isMounted ? 'mounted' : 'not mounted') + '):');
+    console.log(' * Next floor buddy: ', this.parent,
+        ' * Children: ', this.tags,
+        ' * Root', this.root,
+        ' * Options, params & state:', this.opts, this.params, this.state);
+  }
+  
+
+}
+
+/** EXPORTS **/
+export function findInstance() {
+  return Application.instance;
 }
 
 export default Application;
+

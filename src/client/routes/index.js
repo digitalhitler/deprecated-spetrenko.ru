@@ -1,3 +1,14 @@
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-23T17:29:22+03:00
@@ -53,68 +64,9 @@ const RoutesList = {
   riot.route('/read/*', RoutesList.Read.Handle);
   riot.route('/edit..', RoutesList.Edit.Handle);
 
-  let dataitems = [
-    {
-      addr: 'test-addr',
-      layout: 'post-classic',
-      image: 'http://lorempixel.com/400/200',
-      headline: 'Lalala',
-      datePublished: Math.floor(Date.now()/1000),
-      categories: [
-        {
-          addr: 'tag1',
-          label: 'Тег 1'
-        },
+  
 
-        {
-          addr: 'tag2',
-          label: 'Тег 2'
-        }
-      ]
-    },
-    {
-      addr: 'test-addr',
-      layout: 'classic',
-      headline: 'Lalala',
-      datePublished: Math.floor(Date.now()/1000),
-      categories: [
-        {
-          addr: 'tag1',
-          label: 'Тег 1'
-        },
-
-        {
-          addr: 'tag2',
-          label: 'Тег 2'
-        }
-      ]
-    },
-    {
-      addr: 'test-addr',
-      layout: 'classic',
-      headline: 'Lalala',
-      datePublished: Math.floor(Date.now()/1000),
-      categories: [
-        {
-          addr: 'tag1',
-          label: 'Тег 1'
-        },
-
-        {
-          addr: 'tag2',
-          label: 'Тег 2'
-        }
-      ]
-    }
-  ];
-
-  riot.route('/', function() {
-    'use strict';
-    console.info('i am on main');
-    riot.mount('#PageContainer', 'items-grid', {
-      items: dataitems
-    });
-  });
+  riot.route('/', RoutesList.Main.Handle);
 }());
 
 export default RoutesList;

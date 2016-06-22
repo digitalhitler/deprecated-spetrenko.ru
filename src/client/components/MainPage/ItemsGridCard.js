@@ -1,3 +1,14 @@
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-24T05:39:03+03:00
@@ -54,8 +65,8 @@ const cardController = function(opts) {
   this.expandCard = function(e) {
     $(e.currentTarget).addClass('expanded');
     console.info('THIS HAS TRIGGERS TO BROADCAST:', this, riot);
-    this.trigger('pageWillChange');
-    riot.route('/read/' + ((this.opts.values.addr + '/') || null));
+    // this.trigger('pageWillChange');
+    // riot.route('/read/' + ((this.opts.values.addr + '/') || null));
     //$('#pageTransitionPlaceholder')
   }
   console.warn('CARD THIS', this);

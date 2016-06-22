@@ -1,4 +1,15 @@
 /*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/*!*****************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -12,6 +23,41 @@
  *  © Sergey Petrenko <spetrenko@me.com>                                      *
  ******************************************************************************/
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// @todo: what's that?
 .example-enter {
   background: yellow;
   transition: background 1s ease-in;

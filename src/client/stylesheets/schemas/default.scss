@@ -1,4 +1,15 @@
 /*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/*!*****************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -52,7 +63,7 @@ body.cs-default {
       }
 
       .mainmenu--bg {
-        background-color: $baseNeutralStorm;
+        background-color: $baseLight;
         -webkit-backdrop-filter: blur(5px);
       }
 
@@ -84,7 +95,7 @@ body.cs-default {
     &.cs-inverse {
 
       * {
-        transition: background-color 1000ms ease-in,
+        transition: background-color 500ms ease-in,
                     color 500ms ease-in,
                     border 1000ms ease-in;
 
@@ -94,16 +105,16 @@ body.cs-default {
       h1 {
         background-color: transparentize($baseLight, .92);
         box-shadow:0 7px 18px 0 transparentize($baseNeutralStorm, .9),0 15px 57px 0 transparentize($baseNeutralStorm, .9);
-        border: 1px transparentize($baseLight, .6) solid;
+        border: 1px transparentize($baseLight, .9) solid;
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         overflow: hidden;
 
         &:hover {
-          background-color: transparentize($baseLight, .8);
-          border: 1px transparentize($baseLight, .4) solid;
+          background-color: transparentize($baseLight, .7);
+          border: 1px transparentize($baseLight, .6) solid;
           transition-property: all;
-          transition-duration: .3s;
+          transition-duration: 200ms;
           color: $baseLight;
         }
 

@@ -1,3 +1,14 @@
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
  * @project
  * spetrenko.ru - my sweety personal pet-project sources
@@ -39,40 +50,28 @@ import debug from 'debug';
 /* Components */
 import { default as Components } from './components';
 import { default as Routes } from './routes';
-import { default as Triggers } from './events';
+import { default as ControlMixin } from './modules/ControlMixin';
 
 
 (function() {
 
-  const app = Application.instance;
+  const defaultState = {
+    currentState: null,
+    isLoading:    true,
+    windowTitle:  null
+  };
+
+  const app = new Application();
   const $ = jquery;
-  localStorage.debug = 'app:*';
+  // localStorage.debug = 'app:*';
   if(window) {
-    const scope = Application.storeScope;
     window.$ = jquery;
-    window.getStoreScope = function() {
-      return scope || false;
-    }
-    scope.Application = app;
+    window.applicationInstance = app;
+    window.applicationScope = app.storeScope;
   }
 
-  riot.mount('*', {
-    isLoading: true,
-    windowTitle: '',
-    providers: {
-      httpApi: {
-        request: function(method, data) {
-          return {
-            success: true,
-            response: [
-              { a: 1, b:2 },
-              { c: 3, d: 4}
-            ]
-          };
-        }
-      }
-    }
-  });
+  riot.mixin('Control', ControlMixin);
+  app.__domRoot = riot.mount('app', defaultState)[0];
 
   app.emit('applicationDidLoaded');
 
