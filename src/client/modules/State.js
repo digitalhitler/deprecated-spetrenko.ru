@@ -1,4 +1,4 @@
-/*!*****************************************************************************
+/******************************************************************************
  * @project spetrenko.ru                                                      *
  * @description My sweety personal pet-project sources                        *
  * @repository https://github.com/digitalhitler/spetrenko.ru                  *
@@ -9,7 +9,7 @@
  *                                                                            *
  ******************************************************************************/
 
-/*!*****************************************************************************
+/******************************************************************************
  * @project spetrenko.ru                                                      *
  * @description My sweety personal pet-project sources                        *
  * @repository https://github.com/digitalhitler/spetrenko.ru                  *
@@ -20,26 +20,29 @@
  *                                                                            *
  ******************************************************************************/
 
-/*!
- * spetrenko.ru - my sweety personal pet-project sources
- * https://github.com/digitalhitler/spetrenko.ru
- *
- * Copyright © 1992-2016 Sergey Petrenko
- * This file may be the part of sp.ru source code.
- *
- * This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you can do anything except any kind of commercial purposes without a permission of author.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- *  © Sergey Petrenko <spetrenko@me.com>
- */
+// Dependencies:
+import EventEmitter from 'events';
+import riot from 'riot';
 
-$pageTransitionLower:  450;
-$pageMainContentIndex: 470;
-$asideCardCoverIndex:  500;
-$stickyHeaderIndex:    550;
-$mainMenuIndex:        560;
-$mainMenuButtonIndex:  565;
-$mainMenuShownIndex:   570;
-$overlayIndex:         999;
-$overlayContentIndex: 1000;
+const log = require('debug')('app:state');
+
+class State extends EventEmitter {
+  constructor(name, settings) {
+    try {
+      if(typeof name === 'string') {
+        this._name = name;
+      } else {
+        throw new TypeError('State constructor can handle only string-based state names.');
+      }
+
+      if(settings) {
+        if(typeof settings === 'object') {
+          this._settings = settings;
+        }
+      }
+    } catch(e) {
+      log(`Someting goes wrong, state not constructed properly: \n`, e);
+      return new ReferenceError('Lalalal');
+    }
+  }
+}

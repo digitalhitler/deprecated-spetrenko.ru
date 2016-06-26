@@ -1,3 +1,14 @@
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /*!
  * spetrenko.ru - my sweety personal homesite sources
  * https://github.com/digitalhitler/spetrenko.ru
@@ -24,6 +35,9 @@
 @import "config/typography";
 @import "config/zindex";
 
+/** Utilities **/
+@import "utils/_mixins";
+@import "utils/_image";
 
 /** Base  **/
 @import "base/_reset";
@@ -33,9 +47,6 @@
 @import "base/_forms";
 @import "base/_badges";
 @import "base/_buttons";
-
-@import "utils/_image";
-
 
 /** Layout **/
 @import "layout/_default";
@@ -52,6 +63,7 @@
 @import "animations/_transitions";
 
 @import "partials/_loading";
+@import "partials/_mainmenu";
 
 
 @import "layout/_header";
@@ -59,7 +71,8 @@
 @import "layout/_overlays";
 
 
-@import "vendor/bricklayer-0.4.2";
+//@import "vendor/bricklayer-0.4.2";
 
 @import "components/ItemsGridCard";
 @import "components/Reader";
+@import "components/FlexGrid";

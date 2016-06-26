@@ -10,6 +10,17 @@
  ******************************************************************************/
 
 /*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/*!*****************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -50,8 +61,9 @@ body.cs-default {
       }
     }
 
-    .header-button, .mainmenu--button {
+    .header-button, .mainMenu__button {
       background-color: transparentize($baseNeutralStorm, .2);
+      border-radius: 50%;
       box-shadow:0 7px 18px 0 transparentize($baseNeutralStorm, .9),0 15px 57px 0 transparentize($baseNeutralStorm, .9);
       color: $baseLight;
 

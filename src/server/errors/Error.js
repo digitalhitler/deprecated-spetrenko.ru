@@ -1,4 +1,4 @@
-/*!*****************************************************************************
+/******************************************************************************
  * @project spetrenko.ru                                                      *
  * @description My sweety personal pet-project sources                        *
  * @repository https://github.com/digitalhitler/spetrenko.ru                  *
@@ -9,9 +9,3 @@
  *                                                                            *
  ******************************************************************************/
 
-$fontMain:      "Clear Sans", system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, sans-serif;
-$fontAlternate: "Fira Sans";
-$fontSymbolic:  "Helvetica Neue", Helvetica, Arial;
-$fontCode:      "Fira Code", "Fira Mono", "Consolas", monospaced;
-
-$shadowTextTiny: 1px 1px 0 #40A2F7, 2px 2px 0 rgba(0, 0, 0, 0.1);

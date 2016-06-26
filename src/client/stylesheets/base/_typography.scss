@@ -1,3 +1,14 @@
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /*!
  * spetrenko.ru - my sweety personal pet-project sources
  * https://github.com/digitalhitler/spetrenko.ru
@@ -20,6 +31,10 @@
   font-feature-settings: "liga";
 }
 
+html {
+  font-size: 10px;
+}
+
 
 h1 {
   color: $baseDark;
@@ -29,7 +44,7 @@ h1 {
   -moz-font-feature-settings: "liga" on;
   font-weight: 700;
   line-height: 90px;
-  font-size: 64px;
+  font-size: 6.4em;
 }
 
 h2 {
@@ -40,9 +55,7 @@ h2 {
   font-style: normal;
   font-weight: normal;
   height: 33px;
-  list-style-image: none;
-  list-style-position: outside;
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
   position: relative;
@@ -58,10 +71,20 @@ h2 {
     font-weight: normal;
     height: 17px;
     left: -30px;
-    list-style-image: none;
-    list-style-position: outside;
-    list-style-type: none;
+    list-style: none;
     position: absolute;
     text-decoration: none;
+  }
+}
+
+
+a {
+  color: $baseSafeBlue;
+  border-bottom: 1px solid;
+  border-color: transparentize($baseSafeBlue, 0.8);
+
+  &:hover {
+    color: $baseRedContrast;
+    border-color: transparentize($baseRedContrast, 0.8);
   }
 }

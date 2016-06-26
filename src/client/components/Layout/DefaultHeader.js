@@ -9,6 +9,17 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-23T21:16:07+03:00
@@ -52,11 +63,16 @@ riot.tag('layout-header',
 <header id="stickyHeader">
   <nav id="mainMenu">
     <div class="mainMenu__button">
-      <a onclick="{ toggleMainMenu }">
+      <a onclick="{ toggleMainMenu }" href="#">
         <span class="ion-navicon inverse"></span>
       </a>
     </div>
     <div class="mainMenu__container">
+      <div class="mainMenu__button back">
+        <a onclick="{ toggleMainMenu }" href="#">
+          <span class="ion-arrow-left-c inverse"></span>
+        </a>
+      </div>
       <h2>Ubludok</h2>
       <ul class="mainmenu--headings">
         <li each="{ menuItems }"><i class="{ icon }"></i><a href="#!{ addr }"><span>{ label }</span></a></li>
@@ -76,14 +92,13 @@ riot.tag('layout-header',
 </header>
 `,
     function() {
-      'use strict';
-      let self = this;
 
       // * Constants
       const menuVisibleClass = 'mainMenu__visible';
-      const menuContainerClass = 'mainMenu__container';
 
-
+      // * DOM links
+      this.dom = {};
+      this.dom.menuElement = $('.mainMenu__container')[0];
 
       // * Properties
       this.menuItems = [
@@ -114,11 +129,10 @@ riot.tag('layout-header',
 
       // * Methods
       this.toggleMainMenu = () => {
-        let menuElement = $('.' + menuContainerClass);
-        console.log('toggling menu', menuElement);
-        menuElement.toggleClass(menuVisibleClass);
-        menuElement.toggle();
-        this.mainMenuIsVisible = !this.mainMenuIsVisible;
+        console.log('toggling menu', this.dom.menuElement);
+        this.dom.menuElement.toggleClass(menuVisibleClass);
+        this.dom.menuElement.toggle();
+        this.mainMenuIsVisible = this.dom.menuElement.hasClass(menuVisibleClass);
       };
 
       // this.setCurrentMenuItem = function(key) {

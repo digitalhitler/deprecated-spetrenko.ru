@@ -20,26 +20,67 @@
  *                                                                            *
  ******************************************************************************/
 
-/*!
- * spetrenko.ru - my sweety personal pet-project sources
- * https://github.com/digitalhitler/spetrenko.ru
- *
- * Copyright © 1992-2016 Sergey Petrenko
- * This file may be the part of sp.ru source code.
- *
- * This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you can do anything except any kind of commercial purposes without a permission of author.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- *  © Sergey Petrenko <spetrenko@me.com>
- */
+#mainMenu {
+  position: fixed;
+  z-index: $mainMenuIndex;
 
-$pageTransitionLower:  450;
-$pageMainContentIndex: 470;
-$asideCardCoverIndex:  500;
-$stickyHeaderIndex:    550;
-$mainMenuIndex:        560;
-$mainMenuButtonIndex:  565;
-$mainMenuShownIndex:   570;
-$overlayIndex:         999;
-$overlayContentIndex: 1000;
+  .mainMenu__button {
+    position: fixed;
+    z-index: $mainMenuButtonIndex;
+
+    &.back {
+      background-color: rgba(255,255,255,0.5);
+    }
+
+    a {
+      cursor: pointer;
+      display: inline-block;
+      border-radius: 20px;
+      line-height: 40px;
+      width: 40px;
+      font-size: 20px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .mainMenu__container {
+    display: none;
+    position: fixed;
+    background-color: $baseGreen;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: mainmenuSlidedown 0.3s both;
+    height: 100%;
+    z-index: $mainMenuShownIndex !important;
+
+    &.mainMenu__visible {
+      display: block !important;
+    }
+
+    a:not(.no-animation), .animation {
+      transition: color .25s ease-out,
+                  background-color .25s ease-out,
+                  border-color .25s ease-out,
+                  box-shadow .25s ease-out;
+    }
+  }
+}
+
+
+
+@keyframes mainmenuSlidedown {
+  from {
+    height: 0;
+    opacity: 0;
+    transform: translateY(-150px) scale(.7);
+  }
+
+  to {
+    height: 100%;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
