@@ -37,11 +37,18 @@ import riot from 'riot';
 
 const debug = require('debug')('app:router:read');
 
-export function Handle(postId) {
-  let urlParams = riot.route.query();
-  debug('*** Read will route to:', postId, urlParams);
-  riot.mount('#PageContainer', 'reader', {
-    extendHeaderWith: 'cs-inverse',
-    configPassedInEditRoute: [ 1,2,3 ]
-  });
-}
+const ReadMainRoute = {
+  name: "mainPage",
+  title: "Main",
+  url: "/read/:type/:itemId",
+  resolve: () => new Promise(function (resolve, reject) {
+    console.info('RESOLVED OR NOT?!!!!!', resolve, reject);
+    debug('*** ReadMainRoute will route to:\n', resolve);
+    riot.mount('#PageContainer', 'flex-grid', {
+      items: dataitems
+    });
+    resolve();
+  })
+};
+
+export default ReadMainRoute;

@@ -21,6 +21,17 @@
  ******************************************************************************/
 
 /******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/******************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -58,14 +69,14 @@ class Application extends EventEmitter {
     // this.Router = new Router();
     // this.Router.navigate();
 
-
-    this.on('applicationDidLoaded', function() {
-      log('Application did loaded.');
-    });
-
-    this.on('documentDidLoaded', function() {
-      log('Document did loaded.');
-    });
+    //
+    // this.on('applicationDidLoaded', function() {
+    //   log('Application did loaded.');
+    // });
+    //
+    // this.on('documentDidLoaded', function() {
+    //   log('Document did loaded.');
+    // });
 
   }
 
@@ -105,23 +116,9 @@ class Application extends EventEmitter {
         require(`../components/${components[curr]}`);
       }
     }
-
   }
 
-  dumpComponent(component) {
-    if(component.constructor.name !== "Tag") {
-      console.error('dump failed: not a proper component:', component);
-      return;
-    }
-    console.info('dump of #' + component._riot_id + ' (' + (component.isMounted ? 'mounted' : 'not mounted') + '):');
-    console.log(' * Next floor buddy: ', this.parent,
-        ' * Children: ', this.tags,
-        ' * Root', this.root,
-        ' * Options, params & state:', this.opts, this.params, this.state);
-  }
-  
-  
-  
+  // use
 
 }
 

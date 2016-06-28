@@ -20,6 +20,17 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-23T21:16:07+03:00
@@ -98,7 +109,8 @@ riot.tag('layout-header',
 
       // * DOM links
       this.dom = {};
-      this.dom.menuElement = $('.mainMenu__container')[0];
+      this.dom.menuElement = null;
+      console.log(this.dom);
 
       // * Properties
       this.menuItems = [
@@ -129,9 +141,9 @@ riot.tag('layout-header',
 
       // * Methods
       this.toggleMainMenu = () => {
-        console.log('toggling menu', this.dom.menuElement);
-        this.dom.menuElement.toggleClass(menuVisibleClass);
-        this.dom.menuElement.toggle();
+        let mainMenu = document.querySelector('.mainMenu__container');
+        mainMenu.toggleClass(menuVisibleClass);
+        SP.DOM.toggleVisibility(mainMenu);
         this.mainMenuIsVisible = this.dom.menuElement.hasClass(menuVisibleClass);
       };
 

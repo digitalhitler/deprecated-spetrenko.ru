@@ -20,29 +20,13 @@
  *                                                                            *
  ******************************************************************************/
 
-// Dependencies:
-import EventEmitter from 'events';
-import riot from 'riot';
 
-const log = require('debug')('app:state');
-
-class State extends EventEmitter {
-  constructor(name, settings) {
-    try {
-      if(typeof name === 'string') {
-        this._name = name;
-      } else {
-        throw new TypeError('State constructor can handle only string-based state names.');
-      }
-
-      if(settings) {
-        if(typeof settings === 'object') {
-          this._settings = settings;
-        }
-      }
-    } catch(e) {
-      log(`Someting goes wrong, state not constructed properly: \n`, e);
-      return new ReferenceError('Lalalal');
-    }
+class NotFoundRouteHandler extends RouteHandler {
+  constructor() {
+    super();
+    
   }
+
+
+
 }

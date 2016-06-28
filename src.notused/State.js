@@ -31,41 +31,21 @@
  *                                                                            *
  ******************************************************************************/
 
-"use strict";
+// Dependencies:
+import riot from 'riot';
 
-const log = require('debug')('app:mixins:control');
-const applicationInstance = require('./Application').findInstance();
+const log = require('debug')('app:state');
 
-const ControlMixin = {
-  init: function() {
-    log(`Control mixin attached`, arguments);
-  },
-
-  getApplication: function() {
-    return applicationInstance;
-  },
-
-  changeRootState: function(rootStateName, rootStateConfiguration) {
-    console.log(this);
-  },
-
-  bindRootHandler: function(name, handler, once) {
-    let app = this.getApplication();
-    if(typeof name === 'string' && typeof handeler === 'function') {
-      let applyHandler = (once === true ? app.on : app.once);
-      applyHandler(name, handler);
+class State {
+  constructor(props) {
+    if(props && props.name && props.url && props.handler) {
+      for(let curr in props) {
+        this[curr] = props[curr];
+      }
     }
-  },
-
-  /**
-   * @todo Wait for events to occur before render tag.
-   * @param events
-   */
-  waitBeforeRender: function(events) {
-
   }
 
-
-};
-
-export default ControlMixin;
+  get isCurrent() {
+    // if(SP.App && SP.App.__currentStateName)
+  }
+}

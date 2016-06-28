@@ -20,6 +20,17 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
  * @project
  * spetrenko.ru - my sweety personal pet-project sources
@@ -53,6 +64,7 @@ import './stylesheets/main.scss';
 //import { render } from 'react-dom';
 
 // Local (modules folder):
+import Core from './modules/Core';
 import Application from './modules/Application';
 import riot from 'riot';
 import jquery from 'jquery';
@@ -60,7 +72,6 @@ import debug from 'debug';
 
 /* Components */
 import { default as Components } from './components';
-import { default as Routes } from './routes';
 import { default as ControlMixin } from './modules/ControlMixin';
 
 
@@ -77,7 +88,7 @@ import { default as ControlMixin } from './modules/ControlMixin';
   // localStorage.debug = 'app:*';
   if(window) {
     window.$ = jquery;
-    window.applicationInstance = app;
+    window.applicationInstance = window.SP.App = app;
     window.applicationScope = app.storeScope;
   }
 
@@ -89,6 +100,7 @@ import { default as ControlMixin } from './modules/ControlMixin';
   $(document).ready(function() {
     'use strict';
     $("#preloading").addClass("dismiss");
+    
     app.emit('documentDidLoaded');
   })
 

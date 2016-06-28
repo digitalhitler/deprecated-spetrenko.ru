@@ -129,7 +129,7 @@ class ApiProvider {
   //     return false;
   //   } else {
   //     if(!localStorage.vick) localStorage.vick = {
-  //       token: val9ioo
+  //       token: val
   //     };
   //     currentToken = val;
   //     return true;

@@ -21,6 +21,17 @@
  ******************************************************************************/
 
 /******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/******************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -36,6 +47,7 @@
 'use strict';
 
 import riot from 'riot';
+import page from 'page';
 
 let dataitems = [
   {
@@ -132,10 +144,9 @@ let dataitems = [
 
 const debug = require('debug')('app:router:main');
 
-export function Handle(postId) {
-  let urlParams = riot.route.query();
-  debug('*** Main will route to:\n', postId, urlParams);
-  riot.mount('#PageContainer', 'flex-grid', {
-    items: dataitems
-  });
-};
+
+const MainRoute = function(a,b,c) {
+  debug('MainRoute ====================LOADED=============',a,b,c);
+}
+
+export default MainRoute;

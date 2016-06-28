@@ -23,11 +23,13 @@
 import EventEmitter from 'events';
 import riot from 'riot';
 
-const applicationInstance = require('../../modules/Application').findInstance();
+const applicationInstance = require('./Application').findInstance();
 const tagRelatedEvents = [ "mount", "update", "unmount" ];
 const ComponentMixin = {
   
 };
+
+
 
 
 // class Component extends EventEmitter {
