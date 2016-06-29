@@ -1,3 +1,14 @@
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-24T05:39:03+03:00
@@ -26,11 +37,13 @@ import riot from 'riot';
 
 const debug = require('debug')('app:router:read');
 
-export function Handle(postId) {
-  let urlParams = riot.route.query();
-  debug('Will route to:', postId, urlParams);
-  riot.mount('#PageContainer', 'reader', {
-    extendHeaderWith: 'cs-inverse',
-    configPassedInEditRoute: [ 1,2,3 ]
+
+const ReadMainHandler = function() {
+  debug('*** ReadMainRoute will route to:\n');
+  riot.mount('#PageContainer', 'flex-grid', {
+    items: 0
   });
+  return true;
 }
+
+export default ReadMainHandler;

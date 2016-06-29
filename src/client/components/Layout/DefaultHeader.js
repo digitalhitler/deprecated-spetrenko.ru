@@ -1,3 +1,36 @@
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-23T21:16:07+03:00
@@ -39,17 +72,26 @@ import riot from 'riot';
 riot.tag('layout-header',
 `
 <header id="stickyHeader">
-    <nav class="mainmenu">
-      <a class="mainmenu--button" onclick="{ toggleMainMenu }">
+  <nav id="mainMenu">
+    <div class="mainMenu__button">
+      <a onclick="{ toggleMainMenu }" href="#">
         <span class="ion-navicon inverse"></span>
       </a>
-
-      <ul>
+    </div>
+    <div class="mainMenu__container">
+      <div class="mainMenu__button back">
+        <a onclick="{ toggleMainMenu }" href="#">
+          <span class="ion-arrow-left-c inverse"></span>
+        </a>
+      </div>
+      <h2>Ubludok</h2>
+      <ul class="mainmenu--headings">
         <li each="{ menuItems }"><i class="{ icon }"></i><a href="#!{ addr }"><span>{ label }</span></a></li>
       </ul>
 
       <span class="mainmenu--bg"></span>
-    </nav>
+    </div>
+  </nav>
   <span class="header-label header-label-title">
     <a href="#!">Sergey Petrenko</a>
   </span>
@@ -61,7 +103,14 @@ riot.tag('layout-header',
 </header>
 `,
     function() {
-      'use strict';
+
+      // * Constants
+      const menuVisibleClass = 'mainMenu__visible';
+
+      // * DOM links
+      this.dom = {};
+      this.dom.menuElement = null;
+      console.log(this.dom);
 
       // * Properties
       this.menuItems = [
@@ -91,10 +140,11 @@ riot.tag('layout-header',
       this.mainMenuIsVisible = false;
 
       // * Methods
-      this.toggleMainMenu = function() {
-        let mainMenuTrigger = $('.mainmenu');
-        mainMenuTrigger.toggleClass('mainmenu--visible');
-        this.mainMenuIsVisible = !this.mainMenuIsVisible;
+      this.toggleMainMenu = () => {
+        let mainMenu = document.querySelector('.mainMenu__container');
+        mainMenu.toggleClass(menuVisibleClass);
+        SP.DOM.toggleVisibility(mainMenu);
+        this.mainMenuIsVisible = this.dom.menuElement.hasClass(menuVisibleClass);
       };
 
       // this.setCurrentMenuItem = function(key) {
@@ -114,26 +164,18 @@ riot.tag('layout-header',
       //   }
       // }
 
-      this.isCurrentMenuItem = function(key) {
+      this.isCurrentMenuItem = (key) => {
         return (this.currentMenuItem == key);
       };
 
-      // * Events:
-      this.on('pageWillChange', function(params) {
-        console.info('Got broadcast: ', params);
-      });
-      this.on('update', () => {
-        console.warn('SOMETHING UPDATED\n\n======', this);
-      });
 
-      let menuComponent = this;
       this.on('mount', () => {
         $(this.stickyHeader).addClass('animation');
         $(document).on('mouseup', function(event) {
-          let isEventTargetIsMenu = ($(event.target).is('.mainmenu--visible') || $(event.target).is('.mainmenu--visible *'));
-          console.log(isEventTargetIsMenu, menuComponent.mainMenuIsVisible);
-          if (!isEventTargetIsMenu && menuComponent.mainMenuIsVisible)  {
-            menuComponent.toggleMainMenu();
+          let isEventTargetIsMenu = ($(event.target).is('.' + menuVisibleClass) || $(event.target).is('.' + menuVisibleClass + ' *'));
+          console.log(isEventTargetIsMenu, this.mainMenuIsVisible);
+          if (!isEventTargetIsMenu && this.mainMenuIsVisible)  {
+            this.toggleMainMenu();
           }
         });
       });

@@ -1,0 +1,86 @@
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+#mainMenu {
+  position: fixed;
+  z-index: $mainMenuIndex;
+
+  .mainMenu__button {
+    position: fixed;
+    z-index: $mainMenuButtonIndex;
+
+    &.back {
+      background-color: rgba(255,255,255,0.5);
+    }
+
+    a {
+      cursor: pointer;
+      display: inline-block;
+      border-radius: 20px;
+      line-height: 40px;
+      width: 40px;
+      font-size: 20px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .mainMenu__container {
+    display: none;
+    position: fixed;
+    background-color: $baseGreen;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: mainmenuSlidedown 0.3s both;
+    height: 100%;
+    z-index: $mainMenuShownIndex !important;
+
+    &.mainMenu__visible {
+      display: block !important;
+    }
+
+    a:not(.no-animation), .animation {
+      transition: color .25s ease-out,
+                  background-color .25s ease-out,
+                  border-color .25s ease-out,
+                  box-shadow .25s ease-out;
+    }
+  }
+}
+
+
+
+@keyframes mainmenuSlidedown {
+  from {
+    height: 0;
+    opacity: 0;
+    transform: translateY(-150px) scale(.7);
+  }
+
+  to {
+    height: 100%;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

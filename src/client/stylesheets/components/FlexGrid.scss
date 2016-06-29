@@ -1,0 +1,152 @@
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+$ratio:       1.618;
+$base:        1em;
+
+$one:         $base;
+$two:         ($one * $ratio);
+$three:       ($two * $ratio);
+$four:        ($three * $ratio);
+$five:        ($four * $ratio);
+$six:         ($five * $ratio);
+$seven:       ($six * $ratio);
+$eight:       ($seven * $ratio);
+
+@keyframes flexGridCardAppear {
+  from {
+    opacity: 0;
+    transform: scale3d(0.8,0.8,1);
+  }
+}
+
+.flex-grid {
+
+  /**
+  Don't forget to use vendor prefixes
+  for full flexbox support on browsers that
+  going to be legacy soon
+
+  @todo: switch to autoprefixer of PostCSS
+  **/
+  .flex-grid__items {
+    position: relative;
+    @include vendor-prefix('display', 'flex');
+    @include vendor-prefix('flex-direction', 'column');
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    &.medium  { max-width: 100vh; }
+    &.large   { max-width: 138vh; }
+    &.small   { max-width: 68vh;  }
+    &.hero    { max-width: 100vw; }
+  }
+
+
+  .c { align-self: center; }
+  .h { height: auto; }
+  .x { flex-direction: row; }
+  .y { flex-direction: column; }
+  .z { align-items: stretch; }
+  .w { flex-wrap: wrap; }
+
+  .g { flex-grow: 1; flex-shrink: 0; }
+  .s { flex-grow: 0; flex-shrink: 1; }
+
+  .p { padding: 1rem; }
+  .np { padding: 0; }
+
+
+  ul.flex-grid__list {
+    display: flex;
+    align-items: flex-start;
+    list-style: none;
+
+    > flex-grid-card {
+      position: relative;
+      margin: 0 1.618rem 1.618rem 0;
+      border-radius: 3px;
+      box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      background-color: rgba(248, 248, 248, .95);
+      text-align: left;
+      animation: itemGridCardAppear .5s cubic-bezier(0.7,0,0.3,1);
+      animation-iteration-count: 1;
+
+      &.expanded {
+        animation: expandGridCard 1s;
+        animation-fill-mode: backwards;
+      }
+
+      &.sq:before {
+        content:"";
+        display: block;
+        padding-bottom: 100%;//100%-2rem;
+      }
+
+      .flex-grid__item__cover-image {
+        width: 100%;
+        height: auto;
+        background: darken($baseLight, 20%) no-repeat center;
+        background-clip: border-box;
+        background-size: cover;
+        overflow: hidden;
+        object-fit: cover;
+
+        &.thin {
+          height: 2rem;
+        }
+
+        &.fat {
+          height: 5rem;
+        }
+
+        &.below {
+          position: absolute;
+
+          + * {
+            border: blue solid 2px;
+          }
+        }
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+
+        &.thin {
+          max-height: 100px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .x-small { flex: $four;  }
+  .small   { flex: $five;  }
+  .medium  { flex: $six;   }
+  .large   { flex: $seven; }
+  .x-large { flex: $eight; }
+
+}

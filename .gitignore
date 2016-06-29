@@ -1,6 +1,6 @@
 ### Project-related files
 node_modules
-src/api-server/trace.config.js
+src/_deprecated_api-server/trace.config.js
 build
 *deprecated*
 usr/mongodb/data/**
