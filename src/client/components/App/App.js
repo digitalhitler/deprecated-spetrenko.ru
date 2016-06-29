@@ -9,10 +9,21 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 import riot from 'riot';
 // import '../../modules/Router';
 import '../../modules/ControlMixin';
-import { default as routesList } from '../../routes';
+import '../../routes';
 
 
 const log = require('debug')('app:components:app');

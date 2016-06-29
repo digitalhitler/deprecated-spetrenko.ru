@@ -19,6 +19,17 @@
  * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
  *                                                                            *
  ******************************************************************************/
+
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
 "use strict";
 
 import EventEmitter from 'events';
@@ -111,18 +122,18 @@ window.SP.Storage = {};
 
 /*** State ***/
 window.SP.State = {
-  loadRouteRoot: function(route) {
-    if(!window.SP.State.routes) {
-      window.SP.State.routes = {};
-    }
-    if(route && typeof route === "string") {
-      window.SP.State.routes[route] = require();
-    }
-  }
+  // loadRouteRoot: function(route) {
+  //   if(!window.SP.State.routes) {
+  //     window.SP.State.routes = {};
+  //   }
+  //   if(route && typeof route === "string") {
+  //     window.SP.State.routes[route] = require();
+  //   }
+  // }
 };
 window.SP.Initializer.add(() => {
-  window.SP.State.router = require('page');
-  window.SP.State.router.base('/');
+  // window.SP.State.router = require('page');
+  // window.SP.State.router.base('/');
 })
 
 

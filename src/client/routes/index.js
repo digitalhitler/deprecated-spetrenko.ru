@@ -9,7 +9,19 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 import riot from 'riot';
+import page from 'page';
 
 import './Main/Main';
 import './Read/Main';
@@ -20,14 +32,19 @@ function getRouteHandler(route) {
   return require('./' + route);
 }
 
-const routesList = {
-  main:             page("/", getRouteHandler("Main/Main")),
-  readMainpage:     page("/read/:postId", getRouteHandler("Read/Main")),
+console.info('Let routing setup!');
 
-  errors: {
-    notFound: page("*", getRouteHandler("Errors/notFound"))
-  }
-};
+page("/", getRouteHandler);
+//  // readMainpage:     page("/read/:postId", getRouteHandler("Read/Main")),
+//
+//   errors: {
+//    // notFound: page("*", getRouteHandler("Errors/notFound"))
+//   }
+// };
+
+console.log(routesList);
+console.info('Let routing begin!');
+page();
 
 //
 // const routesList = {
@@ -53,4 +70,4 @@ const routesList = {
 //   // riot.route('/', RoutesList.Main.Handle);
 // }());
 
-export default routesList;
+export default true;

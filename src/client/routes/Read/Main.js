@@ -9,6 +9,17 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-24T05:39:03+03:00
@@ -37,18 +48,13 @@ import riot from 'riot';
 
 const debug = require('debug')('app:router:read');
 
-const ReadMainRoute = {
-  name: "mainPage",
-  title: "Main",
-  url: "/read/:type/:itemId",
-  resolve: () => new Promise(function (resolve, reject) {
-    console.info('RESOLVED OR NOT?!!!!!', resolve, reject);
-    debug('*** ReadMainRoute will route to:\n', resolve);
-    riot.mount('#PageContainer', 'flex-grid', {
-      items: dataitems
-    });
-    resolve();
-  })
-};
 
-export default ReadMainRoute;
+const ReadMainHandler = function() {
+  debug('*** ReadMainRoute will route to:\n');
+  riot.mount('#PageContainer', 'flex-grid', {
+    items: 0
+  });
+  return true;
+}
+
+export default ReadMainHandler;
