@@ -31,14 +31,27 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 "use strict";
 
-const log = require('debug')('app:mixins:control');
-const applicationInstance = require('./Application').findInstance();
-
+let log = require('debug')('app:mixins:control');
+let applicationInstance = window.applicationInstance || require('./Application').findInstance();
 const ControlMixin = {
   init: function() {
     log(`Control mixin attached`, arguments);
+    if(!applicationInstance.componentRefs) {
+      applicationInstance.componentRefs = {};
+    }
   },
 
   getApplication: function() {
@@ -57,15 +70,22 @@ const ControlMixin = {
     }
   },
 
+
   /**
    * @todo Wait for events to occur before render tag.
    * @param events
    */
   waitBeforeRender: function(events) {
 
+  },
+
+  defineComponentReference: function(name, link) {
+    if(name && link) {
+      applicationInstance.componentRefs[name] = link;
+    }
   }
 
-
 };
+
 
 export default ControlMixin;

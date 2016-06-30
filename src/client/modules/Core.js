@@ -30,6 +30,17 @@
  * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
  *                                                                            *
  ******************************************************************************/
+
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
 "use strict";
 
 import EventEmitter from 'events';
@@ -91,6 +102,21 @@ window.SP.DOM = {
        node.style.display = 'none';
     } else {
       node.style.display = 'block';
+    }
+  },
+  
+  bodyAttribs: {
+    get: function(name) {
+      let attrNode = document.body.attributes.getNamedItem(name);
+      return (attrNode && attrNode.value ? attrNode.value : undefined);
+    },
+    set: function(name, value) {
+      let currentValue = SP.DOM.bodyAttribs.get(name);
+      if(!currentValue) {
+        let newValueAttrib = document.createAttribute(name);
+        newValueAttrib.value = value;
+        document.body.attributes.setNamedItem(newValueAttrib);
+      }
     }
   }
 };

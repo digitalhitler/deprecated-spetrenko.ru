@@ -9,6 +9,17 @@
  *                                                                            *
  ******************************************************************************/
 
+/******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
 * @Author: Sergey S Petrenko <getrix>
 * @Date:   2016-05-24T02:52:58+03:00
@@ -59,6 +70,7 @@ const ComponentsList = {
     Badge:             require('./GenericControls/Badge'),
     Datetime:          require('./GenericControls/Datetime'),
     ListView:          require('./GenericControls/ListView'),
+    Raw:               require('./GenericControls/Raw')
   },
 
   MainPage: {

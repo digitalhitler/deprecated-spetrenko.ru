@@ -43,6 +43,17 @@
  ******************************************************************************/
 
 /******************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
+/******************************************************************************
  * spetrenko.ru - my sweety personal pet-project sources                      *
  * https://github.com/digitalhitler/spetrenko.ru                              *
  *                                                                            *
@@ -59,8 +70,64 @@
 
 import riot from 'riot';
 import page from 'page';
+import Route from '../Route.class';
 
 let dataitems = [
+  {
+    layout: 'default',
+    size: 'small',
+    cover: 'https://unsplash.it/200/300/?random',
+    data: {
+      addr: 'test-addr',
+      image: 'http://lorempixel.com/400/200',
+      headline: 'Малюсенькая',
+      datePublished: Math.floor(Date.now() / 1000),
+      categories: [
+        {addr: 'tag1', label: 'Тег 1'},
+        {addr: 'tag2', label: 'Тег 2'}
+      ]
+    }
+  },
+  {
+    layout: 'album',
+    size: 'medium',
+    cover: 'https://unsplash.it/600/600/?random',
+    data: {
+      addr: 'test-addr',
+      headline: 'Город с тупым названием',
+      totalItems: 24,
+      totalViews: 3254,
+      location: {
+        title: 'Зажопинск',
+        coords: [59.35323, 48.32413],
+      },
+      datePublished: Math.floor(Date.now() / 1000),
+      categories: [
+        {addr: 'tag1', label: 'Города'},
+        {addr: 'tag2', label: 'Россия'}
+      ]
+    }
+  },
+  {
+    layout: 'album',
+    size: 'small',
+    cover: 'https://unsplash.it/600/600/?random',
+    data: {
+      addr: 'test-addr',
+      headline: 'Город с тупым названием',
+      totalItems: 24,
+      totalViews: 3254,
+      location: {
+        title: 'Зажопинск',
+        coords: [59.35323, 48.32413],
+      },
+      datePublished: Math.floor(Date.now() / 1000),
+      categories: [
+        {addr: 'tag1', label: 'Города'},
+        {addr: 'tag2', label: 'Россия'}
+      ]
+    }
+  },
   {
     layout: 'default',
     size: 'small',
@@ -153,10 +220,16 @@ let dataitems = [
 
 ];
 
-const debug = require('debug')('app:router:main');
-
-const MainRoute = function(a,b,c) {
-  debug('MainRoute ====================LOADED=============',a,b,c);
-}
+let MainRoute = new Route({
+  displayName: "main",
+  rop1: true
+});
+Route.pageSchema = "cs-default";
+MainRoute.handler = (context, next) => {
+  riot.mount('#PageContainer', 'flex-grid', {
+    items: dataitems
+  });
+  window.applicationInstance.componentRefs.layoutHeader.show();
+};
 
 export default MainRoute;

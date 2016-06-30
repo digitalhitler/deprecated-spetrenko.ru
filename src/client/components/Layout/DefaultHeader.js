@@ -9,64 +9,6 @@
  *                                                                            *
  ******************************************************************************/
 
-/******************************************************************************
- * @project spetrenko.ru                                                      *
- * @description My sweety personal pet-project sources                        *
- * @repository https://github.com/digitalhitler/spetrenko.ru                  *
- *                                                                            *
- * @author Sergey Petrenko <spetrenko@me.com>                                 *
- * @license Creative Commons Attribution-NonCommercial 4.0                    *
- * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
- *                                                                            *
- ******************************************************************************/
-
-/******************************************************************************
- * @project spetrenko.ru                                                      *
- * @description My sweety personal pet-project sources                        *
- * @repository https://github.com/digitalhitler/spetrenko.ru                  *
- *                                                                            *
- * @author Sergey Petrenko <spetrenko@me.com>                                 *
- * @license Creative Commons Attribution-NonCommercial 4.0                    *
- * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
- *                                                                            *
- ******************************************************************************/
-
-/**
-* @Author: Sergey S Petrenko <getrix>
-* @Date:   2016-05-23T21:16:07+03:00
-* @Email:  spetrenko@me.com
-* @Project: spetrenko.ru
-* @Last modified by:   getrix
-* @Last modified time: 2016-05-26T13:01:05+03:00
-* @License: This software is licensed under the Creative Commons Attribution-NonCommercial 4.0
-International License.
-To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc/4.0/.
-In either words, you can do anything except any kind of commercial purposes without
-a permission of author.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
-OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-*/
-
-
-/******************************************************************************
- * spetrenko.ru - my sweety personal pet-project sources                      *
- * https://github.com/digitalhitler/spetrenko.ru                              *
- *                                                                            *
- * Copyright © 1992-2016 Sergey Petrenko                                      *
- * This file may be the part of sp.ru source code.                            *
- *                                                                            *
- * This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/. In either words, you can do anything except any kind of commercial purposes without a permission of author.
- *                                                                            *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *                                                                            *
- *  © Sergey Petrenko <spetrenko@me.com>                                      *
- ******************************************************************************/
-
 import riot from 'riot';
 
 riot.tag('layout-header',
@@ -107,10 +49,13 @@ riot.tag('layout-header',
       // * Constants
       const menuVisibleClass = 'mainMenu__visible';
 
+      this.mixin('Control');
+
       // * DOM links
       this.dom = {};
       this.dom.menuElement = null;
-      console.log(this.dom);
+      this.initialState = this.opts.initialState;
+      console.info(this);
 
       // * Properties
       this.menuItems = [
@@ -168,11 +113,29 @@ riot.tag('layout-header',
         return (this.currentMenuItem == key);
       };
 
+      this.show = () => {
+        this.stickyHeader.classList.add('animation');
+        this.stickyHeader.addEventListener('animationend', () => {
+          console.log("ANIMATED");
+          //this.stickyHeader.classList.remove('animation');
+        });
+      };
 
-      this.on('mount', () => {
-        $(this.stickyHeader).addClass('animation');
-        $(document).on('mouseup', function(event) {
-          let isEventTargetIsMenu = ($(event.target).is('.' + menuVisibleClass) || $(event.target).is('.' + menuVisibleClass + ' *'));
+      this.hide = () => {
+        "use strict";
+        this.stickyHeader.classList.add('animation-reverse').add('animation');
+      };
+
+      this.on('before-mount', () => {
+        console.log(this.app);
+        this.defineComponentReference('layoutHeader', this);
+      });
+
+      this.on('mount', (opts) => {
+        this.options = opts;
+        $(document).on('mouseup', (event) => {
+          let isEventTargetIsMenu = ($(event.target).is('.' + menuVisibleClass)
+                                  || $(event.target).is('.' + menuVisibleClass + ' *'));
           console.log(isEventTargetIsMenu, this.mainMenuIsVisible);
           if (!isEventTargetIsMenu && this.mainMenuIsVisible)  {
             this.toggleMainMenu();

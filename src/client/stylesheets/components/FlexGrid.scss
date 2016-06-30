@@ -20,6 +20,17 @@
  *                                                                            *
  ******************************************************************************/
 
+/*!*****************************************************************************
+ * @project spetrenko.ru                                                      *
+ * @description My sweety personal pet-project sources                        *
+ * @repository https://github.com/digitalhitler/spetrenko.ru                  *
+ *                                                                            *
+ * @author Sergey Petrenko <spetrenko@me.com>                                 *
+ * @license Creative Commons Attribution-NonCommercial 4.0                    *
+ * @licenseUrl  http://creativecommons.org/licenses/by-nc/4.0/                *
+ *                                                                            *
+ ******************************************************************************/
+
 $ratio:       1.618;
 $base:        1em;
 
@@ -79,6 +90,7 @@ $eight:       ($seven * $ratio);
 
   ul.flex-grid__list {
     display: flex;
+    margin: 1.618rem 0 0 1.618rem;
     align-items: flex-start;
     list-style: none;
 
@@ -86,6 +98,7 @@ $eight:       ($seven * $ratio);
       position: relative;
       margin: 0 1.618rem 1.618rem 0;
       border-radius: 3px;
+      min-width: 220px;
       box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.15);
       overflow: hidden;
       background-color: rgba(248, 248, 248, .95);
@@ -112,6 +125,12 @@ $eight:       ($seven * $ratio);
         background-size: cover;
         overflow: hidden;
         object-fit: cover;
+
+        &.background-image {
+          * {
+            color: $baseLight;
+          }
+        }
 
         &.thin {
           height: 2rem;

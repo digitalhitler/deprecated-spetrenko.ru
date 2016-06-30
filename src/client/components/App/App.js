@@ -21,9 +21,6 @@
  ******************************************************************************/
 
 import riot from 'riot';
-// import '../../modules/Router';
-import '../../modules/ControlMixin';
-import '../../routes';
 
 
 const log = require('debug')('app:components:app');
@@ -32,13 +29,14 @@ const applicationInstance = require('../../modules/Application').findInstance();
 const appComponent = riot.tag('app', `
   <spinner></spinner>
   <div id="HeaderContainer">
-    <layout-header></layout-header>
+    <layout-header initial-state="hiddddden"></layout-header>
   </div>
   <div id="PageContainer">
   </div>
   `,  
   function(params) {
     'use strict';
+    this.mixin('Control');
     // * Links:
     this.__defaults = params;
     this.__initialized = false;
@@ -48,7 +46,7 @@ const appComponent = riot.tag('app', `
     this.init = () => {
       if(this.__initialized) return;
 
-      // this.mixin('rg.router');
+
       this.app.__state = {
         routing: false,
         current: undefined,
@@ -93,15 +91,19 @@ const appComponent = riot.tag('app', `
     this.on('pageWillChange', function(params) {
       console.error('Got broadcast:\n', params);
     });
+
     this.on('update', () => {
       //log('App tag updated:\n', this);
     });
-    this.on('before-mount', () => {
 
+    this.on('before-mount', () => {
+      console.log(this.app);
+      this.defineComponentReference('root', this);
     });
+
     this.on('mount', (attrs) => {
       log('+++ Mounted App', attrs, this);
-      $('body').addClass('cs-default');
+    //  $('body').addClass('cs-default');
     });
   }
 );
